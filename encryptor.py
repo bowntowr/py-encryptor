@@ -14,10 +14,19 @@ to_encrypt = input("Enter the string you would like to encrypt: ")
 # Finds length of the input string to generate a key
 length = len(to_encrypt)
 
+# Loop to generate key
 for _ in range(length):
     chosen_char = random.choice(ALLOWED_CHARS)
     key += chosen_char
 
-# Prints string to encrypt and generated key
-print("The string to be encrypted:", to_encrypt)
-print("Key to encrypt string:", key)
+# Sets blank encrypted variable to add onto later
+encrypted = ""
+
+# Loop to encrypt inputted string
+for m_char, k_char in zip(to_encrypt, key):
+    combined = (ord(m_char) + ord(k_char)) % 256
+    encrypted += chr(combined)
+
+# Prints finalized encrypted string and key
+print("Encrypted string:", encrypted)
+print("Key:", key)

@@ -32,3 +32,6 @@ for m_char, k_char in zip(to_encrypt, key):
 # Prints finalized encrypted string and key
 print("Encrypted string:", encrypted)
 print("Key:", key)
+
+# Waits to exit so the user can see the output (otherwise the terminal will instantly close on Windows)
+input("\nPress enter to exit...")

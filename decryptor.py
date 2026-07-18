@@ -12,13 +12,14 @@ decrypted = ""
 to_decrypt = input("Enter the string you would like to decrypt: ")
 key = input("Enter the key to decrypt the string with: ")
 
-# Checks key legnth to make sure it matches the string length, if not it will exit the program
+# Decodes with base64 to get the original encrypted string
+to_decrypt = base64.b64decode(to_decrypt.encode("utf-8")).decode("utf-8")
+
+# Checks key length to make sure it matches the string length, if not it will exit the program
 if len(to_decrypt) != len(key):
     print("The key length does not match the string length, please try again with the correct key.")
     input("\nPress enter to exit...")
     exit()
-# Decodes with base64 to get the original encrypted string
-to_decrypt = base64.b64decode(to_decrypt.encode("utf-8")).decode("utf-8")
 
 # Decrypts the string using the key given by the user
 for m_char, k_char in zip(to_decrypt, key):
